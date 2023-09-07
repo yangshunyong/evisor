@@ -6,7 +6,7 @@
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../cmake/aarch64-elf-gcc.cmake -DBOARD=raspi4
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../cmake/cross-toolchain-gcc-aarch64.cmake -DBOARD=raspi4
 cmake --build .
 ```
 
@@ -14,7 +14,8 @@ cmake --build .
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../cmake/aarch64-elf-gcc.cmake -DBOARD=qemu
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../cmake/cross-toolchain-gcc-aarch64.cmake -DBOARD=qemu
 cmake --build .
-xxd -i serial.bin > ../qemu_rom.c
+cp serial.bin qemu_rom.bin
+xxd -i qemu_rom.bin > ../qemu_rom.c
 ```

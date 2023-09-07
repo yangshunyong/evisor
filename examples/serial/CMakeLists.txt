@@ -44,6 +44,7 @@ target_link_options(${TARGET} PRIVATE "-static")
 # Set compiler options
 # ==========================================================================
 set(COMPILE_FLAGS "-Wall -nostartfiles -nostdlib -nolibc -nodefaultlibs -fno-builtin -ffreestanding -mstrict-align")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-stack-protector")
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} ${COMPILE_FLAGS} -DNDEBUG")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} ${COMPILE_FLAGS} -DDEBUG")
 set(CMAKE_ASM_FLAGS_RELEASE "${CMAKE_ASM_FLAGS} -DNDEBUG")
